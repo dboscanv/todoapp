@@ -1,0 +1,12 @@
+#addForm {
+  margin-bottom: 5%;
+}
+
+button.glyphicon {
+  color: blue;
+}
+
+input:disabled{
+  border: none;
+  background-color: transparent;
+}

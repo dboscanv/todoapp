@@ -1,0 +1,26 @@
+<ul class="list-group">
+  <form class="form-inline" id="addForm" #addForm="ngForm">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="user.username" required  #username="ngModel">
+      <div [hidden]="username.valid || username.pristine">
+        El nombre es requerido
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="pass">Contraseña</label>
+      <input type="password" class="form-control" id="pass" name="pass" [(ngModel)]="user.password" required #pass="ngModel">
+      <div [hidden]="pass.valid || pass.pristine">
+        La contraseña es requerida
+      </div>
+    </div>
+    <button type="submit" class="btn btn-default" (click)="onAddUser()" [disabled]="!addForm.form.valid">Añadir</button>
+  </form>
+
+  <li class="list-group-item" *ngFor="let u of users">
+    <span class="badge">
+      <button class="glyphicon glyphicon-trash" aria-hidden="true" (click)="onDeleteUser(u.id)"></button>
+    </span>
+    {{u.username}}
+  </li>
+</ul>

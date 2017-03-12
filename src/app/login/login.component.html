@@ -1,0 +1,18 @@
+<div class="container">
+
+  <form class="form-signin" #loginForm="ngForm">
+    <h2 class="form-signin-heading">Inicia sesion</h2>
+    <label for="inputEmail" class="sr-only">Usuario</label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus [(ngModel)]="user.username" name="username" #name="ngModel">
+    <div [hidden]="name.valid || name.pristine">
+      Usuario es requerido
+    </div>
+    <label for="inputPassword" class="sr-only">Clave</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="user.password" name="password" #password="ngModel">
+    <div [hidden]="password.valid || password.pristine">
+      Clave es requerida
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onLogIn()" [disabled]="!loginForm.form.valid">Sign in</button>
+  </form>
+
+</div> <!-- /container -->

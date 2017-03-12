@@ -1,0 +1,21 @@
+<ul class="list-group">
+  <h3 *ngIf="tasks.length == 0">No tienes tareas! :( Agrega unas!</h3>
+  <form class="form-inline" id="addForm">
+    <div class="form-group">
+      <label for="exampleInputName2">Nombre</label>
+      <input type="text" class="form-control" id="exampleInputName2" placeholder="Aprender Angular" name="new_task" [(ngModel)]="new_task">
+    </div>
+    <button type="submit" class="btn btn-default" (click)="onAddTask(new_task)" [disabled]="new_task == ''">Añadir</button>
+  </form>
+
+  <li class="list-group-item" *ngFor="let task of tasks">
+    <span class="badge">
+      <input type="checkbox" *ngIf="task.edit" [(ngModel)]="task.status">
+      <button class="glyphicon glyphicon-pencil" aria-hidden="true" (click)="task.edit=true"
+              *ngIf="!task.edit"></button>
+      <button class="glyphicon glyphicon-save" aria-hidden="true" (click)="onEdit(task)" *ngIf="task.edit"></button>
+      <button class="glyphicon glyphicon-trash" aria-hidden="true" (click)="onDelete(task)"></button>
+    </span>
+    <input type="text" [(ngModel)]="task.name" [disabled]="!task.edit">
+  </li>
+</ul>
