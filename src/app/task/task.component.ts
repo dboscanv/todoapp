@@ -16,8 +16,7 @@ export class TaskComponent implements OnInit {
   }
 
   onEdit(task) {
-    delete task.editholamundo123123;
-    console.log(task);
+    delete task.edit;
     this.taskService.editTask(task).subscribe((data: Response)=>console.log(data), error => console.log(error));
   }
 
