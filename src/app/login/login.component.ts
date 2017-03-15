@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     this.loginService.logIn(this.user).subscribe(
       (res: Response) => {
         this.loginService.saveToken(res["token"]);
-        this.router.navigate([""])
+        this.router.navigate([""]);
       },
       error => {
         if (error.status == 400) {

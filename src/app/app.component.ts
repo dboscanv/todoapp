@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loggedService.loginFlag.subscribe(data => this.loggedFlag = data)
+    this.loggedService.loginFlag.subscribe(data => this.loggedFlag = data);
 
     if (this.loggedService.isLogged()) {
       this.router.navigate([""])

@@ -13,7 +13,7 @@ import { UserComponent } from './user/user.component';
     AppComponent,
     LoginComponent,
     TaskComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
